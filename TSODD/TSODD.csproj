@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E66C57A-03A7-420C-9EC3-CE8171547307}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TSODD</RootNamespace>
+    <AssemblyName>TSODD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Map.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.1.DataModel, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.1.DataModel.EF6, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.1.ViewModel, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework6.Npgsql.3.2.0\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.5\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFencingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFencingForm.Designer.cs">
+      <DependentUpon>AddFencingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPublicTransportStopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPublicTransportStopForm.Designer.cs">
+      <DependentUpon>AddPublicTransportStopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoadSignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoadSignForm.Designer.cs">
+      <DependentUpon>AddRoadSignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStreetLightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStreetLightForm.Designer.cs">
+      <DependentUpon>AddStreetLightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTradicLightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTradicLightForm.Designer.cs">
+      <DependentUpon>AddTradicLightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AftorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AftorizationForm.Designer.cs">
+      <DependentUpon>AftorizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddAddressForm.Designer.cs">
+      <DependentUpon>AddAddressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CollectionViewModel.cs" />
+    <Compile Include="Common\EntitiesViewModel.cs" />
+    <Compile Include="Common\ReadOnlyCollectionViewModel.cs" />
+    <Compile Include="Common\SingleObjectViewModel.cs" />
+    <Compile Include="Directory\AddDegreeOfCapacityStopsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddDegreeOfCapacityStopsForm.Designer.cs">
+      <DependentUpon>AddDegreeOfCapacityStopsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddExecutionOfTheTrafficLightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddExecutionOfTheTrafficLightForm.Designer.cs">
+      <DependentUpon>AddExecutionOfTheTrafficLightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddFenchingClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddFenchingClassForm.Designer.cs">
+      <DependentUpon>AddFenchingClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddFilmTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddFilmTypeForm.Designer.cs">
+      <DependentUpon>AddFilmTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddGeogPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddGeogPositionForm.Designer.cs">
+      <DependentUpon>AddGeogPositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddGroupFenchingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddGroupFenchingForm.Designer.cs">
+      <DependentUpon>AddGroupFenchingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddGroupTrafficLightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddGroupTrafficLightForm.Designer.cs">
+      <DependentUpon>AddGroupTrafficLightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddLampTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddLampTypeForm.Designer.cs">
+      <DependentUpon>AddLampTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddLightingСlassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddLightingСlassForm.Designer.cs">
+      <DependentUpon>AddLightingСlassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddPhotoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddPhotoForm.Designer.cs">
+      <DependentUpon>AddPhotoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddSostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddSostForm.Designer.cs">
+      <DependentUpon>AddSostForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddSubgroupGenchingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddSubgroupGenchingForm.Designer.cs">
+      <DependentUpon>AddSubgroupGenchingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddTypeOfFenchingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddTypeOfFenchingForm.Designer.cs">
+      <DependentUpon>AddTypeOfFenchingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddTypeOfLayoutStopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddTypeOfLayoutStopForm.Designer.cs">
+      <DependentUpon>AddTypeOfLayoutStopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddTypeRoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddTypeRoadForm.Designer.cs">
+      <DependentUpon>AddTypeRoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddTypeTrafficLightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddTypeTrafficLightForm.Designer.cs">
+      <DependentUpon>AddTypeTrafficLightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddTypeTSODDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddTypeTSODDForm.Designer.cs">
+      <DependentUpon>AddTypeTSODDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\AddVariantOfTrafficLightDesignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\AddVariantOfTrafficLightDesignForm.Designer.cs">
+      <DependentUpon>AddVariantOfTrafficLightDesignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Directory\Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directory\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\Tsodd\Address.cs" />
+    <Compile Include="Entity\Tsodd\ConditionOfTheObject.cs" />
+    <Compile Include="Entity\Fencing\Fencing.cs" />
+    <Compile Include="Entity\Fencing\FencingСlass.cs" />
+    <Compile Include="Entity\Fencing\GroupFencing.cs" />
+    <Compile Include="Entity\Fencing\SubgroupFencing.cs" />
+    <Compile Include="Entity\Fencing\TypeFencing.cs" />
+    <Compile Include="Entity\Tsodd\GeographicalPosition.cs" />
+    <Compile Include="Entity\Public transport stop\DegreeOfCapacityStops.cs" />
+    <Compile Include="Entity\Public transport stop\PublicTransportStop.cs" />
+    <Compile Include="Entity\Public transport stop\TypeOfLayoutStop.cs" />
+    <Compile Include="Entity\Street Light\LampType.cs" />
+    <Compile Include="Entity\Street Light\LightingСlass.cs" />
+    <Compile Include="Entity\Street Light\StreetLight.cs" />
+    <Compile Include="Entity\Tsodd\Photo.cs" />
+    <Compile Include="Entity\Road sign\FilmType.cs" />
+    <Compile Include="Entity\Road sign\RoadSign.cs" />
+    <Compile Include="Entity\Road sign\TypeRoad.cs" />
+    <Compile Include="Entity\Traffic light\ExecutionOfTheTrafficLight.cs" />
+    <Compile Include="Entity\Traffic light\GroupTrafficLight.cs" />
+    <Compile Include="Entity\Traffic light\TrafficLight.cs" />
+    <Compile Include="Entity\Traffic light\TypeTrafficLight.cs" />
+    <Compile Include="Entity\Traffic light\VariantOfTrafficLightDesign.cs" />
+    <Compile Include="Entity\Tsodd\Tsodd.cs" />
+    <Compile Include="Entity\Tsodd\TypeTSODD.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolbarForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolbarForm1.Designer.cs">
+      <DependentUpon>ToolbarForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TsoddContext.cs" />
+    <Compile Include="TsoddContextDataModel\ITsoddContextUnitOfWork.cs" />
+    <Compile Include="TsoddContextDataModel\TsoddContextUnitOfWork.cs" />
+    <Compile Include="TsoddContextDataModel\UnitOfWorkSource.cs" />
+    <Compile Include="ViewModels\Address\AddressCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Address\AddressViewModel.cs" />
+    <Compile Include="ViewModels\ConditionOfTheObject\ConditionOfTheObjectCollectionViewModel.cs" />
+    <Compile Include="ViewModels\ConditionOfTheObject\ConditionOfTheObjectViewModel.cs" />
+    <Compile Include="ViewModels\DegreeOfCapacityStops\DegreeOfCapacityStopsCollectionViewModel.cs" />
+    <Compile Include="ViewModels\DegreeOfCapacityStops\DegreeOfCapacityStopsViewModel.cs" />
+    <Compile Include="ViewModels\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightCollectionViewModel.cs" />
+    <Compile Include="ViewModels\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightViewModel.cs" />
+    <Compile Include="ViewModels\Fencing\FencingCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Fencing\FencingViewModel.cs" />
+    <Compile Include="ViewModels\FencingСlass\FencingСlassCollectionViewModel.cs" />
+    <Compile Include="ViewModels\FencingСlass\FencingСlassViewModel.cs" />
+    <Compile Include="ViewModels\FilmType\FilmTypeCollectionViewModel.cs" />
+    <Compile Include="ViewModels\FilmType\FilmTypeViewModel.cs" />
+    <Compile Include="ViewModels\GeographicalPosition\GeographicalPositionCollectionViewModel.cs" />
+    <Compile Include="ViewModels\GeographicalPosition\GeographicalPositionViewModel.cs" />
+    <Compile Include="ViewModels\GroupFencing\GroupFencingCollectionViewModel.cs" />
+    <Compile Include="ViewModels\GroupFencing\GroupFencingViewModel.cs" />
+    <Compile Include="ViewModels\GroupTrafficLight\GroupTrafficLightCollectionViewModel.cs" />
+    <Compile Include="ViewModels\GroupTrafficLight\GroupTrafficLightViewModel.cs" />
+    <Compile Include="ViewModels\LampType\LampTypeCollectionViewModel.cs" />
+    <Compile Include="ViewModels\LampType\LampTypeViewModel.cs" />
+    <Compile Include="ViewModels\LightingСlass\LightingСlassCollectionViewModel.cs" />
+    <Compile Include="ViewModels\LightingСlass\LightingСlassViewModel.cs" />
+    <Compile Include="ViewModels\Photo\PhotoCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Photo\PhotoViewModel.cs" />
+    <Compile Include="ViewModels\PublicTransportStop\PublicTransportStopCollectionViewModel.cs" />
+    <Compile Include="ViewModels\PublicTransportStop\PublicTransportStopViewModel.cs" />
+    <Compile Include="ViewModels\RoadSign\RoadSignCollectionViewModel.cs" />
+    <Compile Include="ViewModels\RoadSign\RoadSignViewModel.cs" />
+    <Compile Include="ViewModels\StreetLight\StreetLightCollectionViewModel.cs" />
+    <Compile Include="ViewModels\StreetLight\StreetLightViewModel.cs" />
+    <Compile Include="ViewModels\SubgroupFencing\SubgroupFencingCollectionViewModel.cs" />
+    <Compile Include="ViewModels\SubgroupFencing\SubgroupFencingViewModel.cs" />
+    <Compile Include="ViewModels\TrafficLight\TrafficLightCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TrafficLight\TrafficLightViewModel.cs" />
+    <Compile Include="ViewModels\TsoddContextViewModel.cs" />
+    <Compile Include="ViewModels\Tsodd\TsoddCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Tsodd\TsoddViewModel.cs" />
+    <Compile Include="ViewModels\TypeFencing\TypeFencingCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TypeFencing\TypeFencingViewModel.cs" />
+    <Compile Include="ViewModels\TypeOfLayoutStop\TypeOfLayoutStopCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TypeOfLayoutStop\TypeOfLayoutStopViewModel.cs" />
+    <Compile Include="ViewModels\TypeRoad\TypeRoadCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TypeRoad\TypeRoadViewModel.cs" />
+    <Compile Include="ViewModels\TypeTrafficLight\TypeTrafficLightCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TypeTrafficLight\TypeTrafficLightViewModel.cs" />
+    <Compile Include="ViewModels\TypeTSODD\TypeTSODDCollectionViewModel.cs" />
+    <Compile Include="ViewModels\TypeTSODD\TypeTSODDViewModel.cs" />
+    <Compile Include="ViewModels\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignCollectionViewModel.cs" />
+    <Compile Include="ViewModels\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignViewModel.cs" />
+    <Compile Include="Views\Address\AddressCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Address\AddressCollectionView.designer.cs">
+      <DependentUpon>AddressCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Address\AddressView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Address\AddressView.designer.cs">
+      <DependentUpon>AddressView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Address\XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Address\XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConditionOfTheObject\ConditionOfTheObjectCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ConditionOfTheObject\ConditionOfTheObjectCollectionView.designer.cs">
+      <DependentUpon>ConditionOfTheObjectCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConditionOfTheObject\ConditionOfTheObjectView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ConditionOfTheObject\ConditionOfTheObjectView.designer.cs">
+      <DependentUpon>ConditionOfTheObjectView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DegreeOfCapacityStops\DegreeOfCapacityStopsCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DegreeOfCapacityStops\DegreeOfCapacityStopsCollectionView.designer.cs">
+      <DependentUpon>DegreeOfCapacityStopsCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DegreeOfCapacityStops\DegreeOfCapacityStopsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DegreeOfCapacityStops\DegreeOfCapacityStopsView.designer.cs">
+      <DependentUpon>DegreeOfCapacityStopsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightCollectionView.designer.cs">
+      <DependentUpon>ExecutionOfTheTrafficLightCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ExecutionOfTheTrafficLight\ExecutionOfTheTrafficLightView.designer.cs">
+      <DependentUpon>ExecutionOfTheTrafficLightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fencing\FencingCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Fencing\FencingCollectionView.designer.cs">
+      <DependentUpon>FencingCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fencing\FencingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Fencing\FencingView.designer.cs">
+      <DependentUpon>FencingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FencingСlass\FencingСlassCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FencingСlass\FencingСlassCollectionView.designer.cs">
+      <DependentUpon>FencingСlassCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FencingСlass\FencingСlassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FencingСlass\FencingСlassView.designer.cs">
+      <DependentUpon>FencingСlassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilmType\FilmTypeCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FilmType\FilmTypeCollectionView.designer.cs">
+      <DependentUpon>FilmTypeCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilmType\FilmTypeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FilmType\FilmTypeView.designer.cs">
+      <DependentUpon>FilmTypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeographicalPosition\GeographicalPositionCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GeographicalPosition\GeographicalPositionCollectionView.designer.cs">
+      <DependentUpon>GeographicalPositionCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeographicalPosition\GeographicalPositionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GeographicalPosition\GeographicalPositionView.designer.cs">
+      <DependentUpon>GeographicalPositionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupFencing\GroupFencingCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupFencing\GroupFencingCollectionView.designer.cs">
+      <DependentUpon>GroupFencingCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupFencing\GroupFencingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupFencing\GroupFencingView.designer.cs">
+      <DependentUpon>GroupFencingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupTrafficLight\GroupTrafficLightCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupTrafficLight\GroupTrafficLightCollectionView.designer.cs">
+      <DependentUpon>GroupTrafficLightCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupTrafficLight\GroupTrafficLightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GroupTrafficLight\GroupTrafficLightView.designer.cs">
+      <DependentUpon>GroupTrafficLightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LampType\LampTypeCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LampType\LampTypeCollectionView.designer.cs">
+      <DependentUpon>LampTypeCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LampType\LampTypeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LampType\LampTypeView.designer.cs">
+      <DependentUpon>LampTypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LightingСlass\LightingСlassCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LightingСlass\LightingСlassCollectionView.designer.cs">
+      <DependentUpon>LightingСlassCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LightingСlass\LightingСlassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LightingСlass\LightingСlassView.designer.cs">
+      <DependentUpon>LightingСlassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoCollectionView.designer.cs">
+      <DependentUpon>PhotoCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoView.designer.cs">
+      <DependentUpon>PhotoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublicTransportStop\PublicTransportStopCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PublicTransportStop\PublicTransportStopCollectionView.designer.cs">
+      <DependentUpon>PublicTransportStopCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublicTransportStop\PublicTransportStopView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PublicTransportStop\PublicTransportStopView.designer.cs">
+      <DependentUpon>PublicTransportStopView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoadSign\RoadSignCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\RoadSign\RoadSignCollectionView.designer.cs">
+      <DependentUpon>RoadSignCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoadSign\RoadSignView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\RoadSign\RoadSignView.designer.cs">
+      <DependentUpon>RoadSignView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StreetLight\StreetLightCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\StreetLight\StreetLightCollectionView.designer.cs">
+      <DependentUpon>StreetLightCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StreetLight\StreetLightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\StreetLight\StreetLightView.designer.cs">
+      <DependentUpon>StreetLightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubgroupFencing\SubgroupFencingCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SubgroupFencing\SubgroupFencingCollectionView.designer.cs">
+      <DependentUpon>SubgroupFencingCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubgroupFencing\SubgroupFencingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SubgroupFencing\SubgroupFencingView.designer.cs">
+      <DependentUpon>SubgroupFencingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrafficLight\TrafficLightCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TrafficLight\TrafficLightCollectionView.designer.cs">
+      <DependentUpon>TrafficLightCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrafficLight\TrafficLightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TrafficLight\TrafficLightView.designer.cs">
+      <DependentUpon>TrafficLightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TsoddContextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TsoddContextView.designer.cs">
+      <DependentUpon>TsoddContextView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tsodd\TsoddCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tsodd\TsoddCollectionView.designer.cs">
+      <DependentUpon>TsoddCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tsodd\TsoddView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Tsodd\TsoddView.designer.cs">
+      <DependentUpon>TsoddView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeFencing\TypeFencingCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeFencing\TypeFencingCollectionView.designer.cs">
+      <DependentUpon>TypeFencingCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeFencing\TypeFencingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeFencing\TypeFencingView.designer.cs">
+      <DependentUpon>TypeFencingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeOfLayoutStop\TypeOfLayoutStopCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeOfLayoutStop\TypeOfLayoutStopCollectionView.designer.cs">
+      <DependentUpon>TypeOfLayoutStopCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeOfLayoutStop\TypeOfLayoutStopView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeOfLayoutStop\TypeOfLayoutStopView.designer.cs">
+      <DependentUpon>TypeOfLayoutStopView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeRoad\TypeRoadCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeRoad\TypeRoadCollectionView.designer.cs">
+      <DependentUpon>TypeRoadCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeRoad\TypeRoadView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeRoad\TypeRoadView.designer.cs">
+      <DependentUpon>TypeRoadView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeTrafficLight\TypeTrafficLightCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeTrafficLight\TypeTrafficLightCollectionView.designer.cs">
+      <DependentUpon>TypeTrafficLightCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeTrafficLight\TypeTrafficLightView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeTrafficLight\TypeTrafficLightView.designer.cs">
+      <DependentUpon>TypeTrafficLightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeTSODD\TypeTSODDCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeTSODD\TypeTSODDCollectionView.designer.cs">
+      <DependentUpon>TypeTSODDCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TypeTSODD\TypeTSODDView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TypeTSODD\TypeTSODDView.designer.cs">
+      <DependentUpon>TypeTSODDView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignCollectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignCollectionView.designer.cs">
+      <DependentUpon>VariantOfTrafficLightDesignCollectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\VariantOfTrafficLightDesign\VariantOfTrafficLightDesignView.designer.cs">
+      <DependentUpon>VariantOfTrafficLightDesignView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddFencingForm.resx">
+      <DependentUpon>AddFencingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRoadSignForm.resx">
+      <DependentUpon>AddRoadSignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AftorizationForm.resx">
+      <DependentUpon>AftorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddAddressForm.resx">
+      <DependentUpon>AddAddressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddDegreeOfCapacityStopsForm.resx">
+      <DependentUpon>AddDegreeOfCapacityStopsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddExecutionOfTheTrafficLightForm.resx">
+      <DependentUpon>AddExecutionOfTheTrafficLightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddFenchingClassForm.resx">
+      <DependentUpon>AddFenchingClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddFilmTypeForm.resx">
+      <DependentUpon>AddFilmTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddGeogPositionForm.resx">
+      <DependentUpon>AddGeogPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddGroupFenchingForm.resx">
+      <DependentUpon>AddGroupFenchingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddGroupTrafficLightForm.resx">
+      <DependentUpon>AddGroupTrafficLightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddLampTypeForm.resx">
+      <DependentUpon>AddLampTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddLightingСlassForm.resx">
+      <DependentUpon>AddLightingСlassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddPhotoForm.resx">
+      <DependentUpon>AddPhotoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddSostForm.resx">
+      <DependentUpon>AddSostForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddSubgroupGenchingForm.resx">
+      <DependentUpon>AddSubgroupGenchingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddTypeOfFenchingForm.resx">
+      <DependentUpon>AddTypeOfFenchingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddTypeOfLayoutStopForm.resx">
+      <DependentUpon>AddTypeOfLayoutStopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddTypeRoadForm.resx">
+      <DependentUpon>AddTypeRoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddTypeTrafficLightForm.resx">
+      <DependentUpon>AddTypeTrafficLightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddTypeTSODDForm.resx">
+      <DependentUpon>AddTypeTSODDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\AddVariantOfTrafficLightDesignForm.resx">
+      <DependentUpon>AddVariantOfTrafficLightDesignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Directory\Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolbarForm1.resx">
+      <DependentUpon>ToolbarForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Address\AddressCollectionView.resx">
+      <DependentUpon>AddressCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Address\XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Fencing\FencingCollectionView.resx">
+      <DependentUpon>FencingCollectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Fencing\FencingView.resx">
+      <DependentUpon>FencingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel;
+using DevExpress.Mvvm;
+using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
+using DevExpress.Mvvm.ViewModel;
+using TSODD.TsoddContextDataModel;
+
+namespace TSODD.ViewModels {
+    /// <summary>
+    /// Represents the root POCO view model for the TsoddContext data model.
+    /// </summary>
+    public partial class TsoddContextViewModel : DocumentsViewModel<TsoddContextModuleDescription, ITsoddContextUnitOfWork> {
+
+		const string TablesGroup = "Tables";
+
+		const string ViewsGroup = "Views";
+	
+        /// <summary>
+        /// Creates a new instance of TsoddContextViewModel as a POCO view model.
+        /// </summary>
+        public static TsoddContextViewModel Create() {
+            return ViewModelSource.Create(() => new TsoddContextViewModel());
+        }
+
+		
+        /// <summary>
+        /// Initializes a new instance of the TsoddContextViewModel class.
+        /// This constructor is declared protected to avoid undesired instantiation of the TsoddContextViewModel type without the POCO proxy factory.
+        /// </summary>
+        protected TsoddContextViewModel()
+		    : base(UnitOfWorkSource.GetUnitOfWorkFactory()) {
+        }
+
+        protected override TsoddContextModuleDescription[] CreateModules() {
+			return new TsoddContextModuleDescription[] {
+                new TsoddContextModuleDescription( "Address", "AddressCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Address)),
+                new TsoddContextModuleDescription( "Condition Of The Object", "ConditionOfTheObjectCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.ConditionOfTheObject)),
+                new TsoddContextModuleDescription( "Degree Of Capacity Stops", "DegreeOfCapacityStopsCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.DegreeOfCapacityStops)),
+                new TsoddContextModuleDescription( "Execution Of The Traffic Light", "ExecutionOfTheTrafficLightCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.ExecutionOfTheTrafficLight)),
+                new TsoddContextModuleDescription( "Fencing", "FencingCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Fencing)),
+                new TsoddContextModuleDescription( "Fencing Сlass", "FencingСlassCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.FencingСlass)),
+                new TsoddContextModuleDescription( "Group Fencing", "GroupFencingCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.GroupFencing)),
+                new TsoddContextModuleDescription( "Photo", "PhotoCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Photo)),
+                new TsoddContextModuleDescription( "Subgroup Fencing", "SubgroupFencingCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.SubgroupFencing)),
+                new TsoddContextModuleDescription( "Type Fencing", "TypeFencingCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TypeFencing)),
+                new TsoddContextModuleDescription( "Type TSODD", "TypeTSODDCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TypeTSODD)),
+                new TsoddContextModuleDescription( "Film Type", "FilmTypeCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.FilmType)),
+                new TsoddContextModuleDescription( "Geographical Position", "GeographicalPositionCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.GeographicalPosition)),
+                new TsoddContextModuleDescription( "Group Traffic Light", "GroupTrafficLightCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.GroupTrafficLight)),
+                new TsoddContextModuleDescription( "Lamp Type", "LampTypeCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.LampType)),
+                new TsoddContextModuleDescription( "Lighting Сlass", "LightingСlassCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.LightingСlass)),
+                new TsoddContextModuleDescription( "Public Transport Stop", "PublicTransportStopCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.PublicTransportStop)),
+                new TsoddContextModuleDescription( "Type Of Layout Stop", "TypeOfLayoutStopCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TypeOfLayoutStop)),
+                new TsoddContextModuleDescription( "Road Sign", "RoadSignCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.RoadSign)),
+                new TsoddContextModuleDescription( "Type Road", "TypeRoadCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TypeRoad)),
+                new TsoddContextModuleDescription( "Street Light", "StreetLightCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.StreetLight)),
+                new TsoddContextModuleDescription( "Traffic Light", "TrafficLightCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TrafficLight)),
+                new TsoddContextModuleDescription( "Type Traffic Light", "TypeTrafficLightCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.TypeTrafficLight)),
+                new TsoddContextModuleDescription( "Variant Of Traffic Light Design", "VariantOfTrafficLightDesignCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.VariantOfTrafficLightDesign)),
+                new TsoddContextModuleDescription( "Tsodd", "TsoddCollectionView", TablesGroup, GetPeekCollectionViewModelFactory(x => x.Tsodd)),
+			};
+        }
+                	}
+
+    public partial class TsoddContextModuleDescription : ModuleDescription<TsoddContextModuleDescription> {
+        public TsoddContextModuleDescription(string title, string documentType, string group, Func<TsoddContextModuleDescription, object> peekCollectionViewModelFactory = null)
+            : base(title, documentType, group, peekCollectionViewModelFactory) {
+        }
+    }
+}
